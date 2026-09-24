@@ -23,7 +23,8 @@ Cocok untuk satu folder yang dikerjakan bareng tim, atau buat kamu yang ingin se
 | `setup-autosync.sh` | Setup Linux: pasang systemd user service `autosync-git` |
 | `setup-autosync.ps1` / `setup-autosync.bat` | Setup Windows: pasang Scheduled Task `autosync-git` |
 | `start-auto-sync.bat` | Jalankan watcher Windows tanpa Scheduled Task |
-| `join.ps1` | Setup plug & play sekali jalan (clone repo + setup otomatis) |
+| `join.sh` | Setup plug & play Linux/macOS (clone repo + setup otomatis) |
+| `join.ps1` | Setup plug & play Windows sekali jalan (clone repo + setup otomatis) |
 | `join-local.ps1` / `join.bat` | Launcher lokal untuk `join.ps1` (klik dua kali) |
 | `check-sync.ps1` | Cek status Scheduled Task + log (Windows) |
 | `fix-sync.ps1` | Perbaikan otomatis umum (identitas git, remote, task) |
@@ -44,6 +45,16 @@ Cocok untuk satu folder yang dikerjakan bareng tim, atau buat kamu yang ingin se
 ## Instalasi
 
 ### Linux
+
+Plug & play dari internet (clone + setup otomatis ke `~/autosync-git`, identitas git diisi otomatis):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Abhiprayaa29/autosync-git/main/join.sh | bash
+```
+
+atau jalankan `bash join.sh` dari folder clone yang sudah ada.
+
+Manual:
 
 ```bash
 git clone https://github.com/Abhiprayaa29/autosync-git.git
@@ -116,7 +127,7 @@ Semua file di repo ini generik. Untuk memakainya di repository sendiri:
 
 1. Salin file yang dibutuhkan (`auto-sync.*`, `setup-autosync.*`, `.gitignore`) ke repo kamu, atau clone repo ini ke dalam folder kerja.
 2. Arahkan remote ke repo kamu: `git remote set-url origin https://github.com/<OWNER>/<REPO>.git`.
-3. Untuk alur `join.ps1`, ganti nilai `$RepoUrl` di dalamnya menjadi `https://github.com/<OWNER>/<REPO>.git`.
+3. Untuk alur plug & play, ganti nilai `$RepoUrl` (di `join.ps1`) atau `REPO_URL` (di `join.sh`) menjadi `https://github.com/<OWNER>/<REPO>.git`.
 
 ## Batasan & peringatan
 
