@@ -1,0 +1,18 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+*.swp
+*.swo
+*~
+\#*\#
+.#*
+
+# Auto-sync runtime
+.autosync.lock
+.autosync.log
+*.log
